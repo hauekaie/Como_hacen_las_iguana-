@@ -1,0 +1,33 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  host: localhost
+
+development:
+  <<: *default
+  database: meeho_development
+  username: postgres
+  password: Sapito3043@
+  host: localhost
+  port: 5624
+
+
+test:
+  <<: *default
+  database: meeho_test
+  username: postgres
+  password: Sapito3043@
+  host: localhost
+  port: 5624
+
+
+production:
+  <<: *default
+  database: meeho_production
+  username: meeho
+  password: <%= ENV['MEEHO_DATABASE_PASSWORD'] %>
